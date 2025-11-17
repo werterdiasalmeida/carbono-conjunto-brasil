@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Eco Carbon Brasil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #a8ffbf, #5cd4ff);
+            min-height: 100vh;
+        }
+
+        .navbar-premium {
+            backdrop-filter: blur(6px);
+            background: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        .hero-section {
+            padding: 10px 0;
+            color: #ffffff;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-top: 15px;
+        }
+
+        .feature-card {
+            border-radius: 18px;
+            transition: 0.3s;
+            border: none;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+        }
+
+        .icon-feature {
+            font-size: 2.4rem;
+            color: #1e9d50;
+            margin-bottom: 10px;
+        }
+
+        .premium-cta {
+            background: linear-gradient(135deg, #00c853, #00e676);
+            color: #fff !important;
+            padding: 14px 28px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0, 200, 83, 0.4);
+            transition: all .3s ease;
+        }
+
+        .premium-cta:hover {
+            background: linear-gradient(135deg, #00e676, #69f0ae);
+            transform: scale(1.06);
+            box-shadow: 0 6px 18px rgba(0, 200, 83, 0.55);
+        }
+
+        :root {
+            --green-1: #2ecc71;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-premium shadow-sm">
+        <div class="container">
+
+            <!-- LOGO BONITA -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fa-solid fa-seedling fa-2x me-2" style="color:var(--green-1)"></i>
+                <span class="fw-bold text-success">Eco Carbon Brasil</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="comprar.html">Comprar</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="vender.html">Vender</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="hero-title">Negocie Créditos de Carbono com Transparência e Impacto</h1>
+            <p class="hero-subtitle">Uma plataforma moderna, sustentável e confiável para compra e venda de créditos no
+                mercado voluntário.</p>
+            <a href="comprar.html" class="btn btn-lg btn-light mt-4 px-5 shadow-sm fw-bold premium-cta">Quero Comprar
+                Créditos de Carbono</a>
+            <a href="vender.html" class="btn btn-lg btn-light mt-4 px-5 shadow-sm fw-bold premium-cta">Quero Criar ou
+                Vender Créditos de Carbono</a>
+        </div>
+    </section>
+    <!-- FEATURES -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-4 bg-white feature-card shadow-sm h-100 text-center">
+                        <i class="fa-solid fa-leaf icon-feature"></i>
+                        <h5 class="fw-bold text-success">Sustentabilidade Real</h5>
+                        <p>Créditos auditados, com origem comprovada em projetos ambientais reais e certificados.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white feature-card shadow-sm h-100 text-center">
+                        <i class="fa-solid fa-globe icon-feature"></i>
+                        <h5 class="fw-bold text-success">Transparência Total</h5>
+                        <p>Acompanhe cada etapa do crédito: origem, certificação, rastreabilidade e histórico.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white feature-card shadow-sm h-100 text-center">
+                        <i class="fa-solid fa-handshake icon-feature"></i>
+                        <h5 class="fw-bold text-success">Negociação Simples</h5>
+                        <p>Fluxo rápido para compra e venda, incluindo operações on-chain e off-chain.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <a href="index.html" class="btn btn-outline-success w-100">
+        <i class="bi bi-arrow-left"></i> Sair
+    </a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
