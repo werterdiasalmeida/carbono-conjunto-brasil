@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eco Carbon Brasil - Anunciar Crédito</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body { background: #f5fff8; }
+    .header-bar { background: #0b8f4d; padding: 14px 0; color: white; }
+    .card { border-radius: 14px; }
+    .btn-primary { background: #0b8f4d; border: none; }
+    .btn-primary:hover { background: #0a7d43; }
+    .form-label i { color: #0b8f4d; }
+  </style>
+</head>
+<body>
+
+<!-- Topo -->
+<header class="header-bar text-center">
+  <h3 class="fw-bold">Anunciar Crédito</h3>
+</header>
+
+<div class="container my-5" style="max-width: 800px;">
+  <div class="card shadow-sm p-4">
+    <h4 class="mb-4"><i class="fa-solid fa-leaf"></i> Informações do Crédito</h4>
+
+    <form>
+      <div class="mb-3">
+        <label class="form-label fw-bold"><i class="fa-solid fa-user"></i> Proprietário do Crédito</label>
+        <input type="text" class="form-control" placeholder="Nome do proprietário" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold"><i class="fa-solid fa-tag"></i> Apelido do Crédito</label>
+        <input type="text" class="form-control" placeholder="Ex: Floresta Amazônica 2024" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold"><i class="fa-solid fa-seedling"></i> Origem do Crédito</label>
+        <select class="form-select">
+          <option selected disabled>Selecione</option>
+          <option>Reflorestamento</option>
+          <option>Preservação de Floresta</option>
+          <option>Energia Renovável</option>
+          <option>Agricultura de Baixo Carbono</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold"><i class="fa-solid fa-certificate"></i> Tipo (Padrão)</label>
+        <select class="form-select">
+          <option selected disabled>Selecione</option>
+          <option>VERRA</option>
+          <option>Gold Standard</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold"><i class="fa-solid fa-circle-nodes"></i> Situação Atual</label>
+        <select class="form-select">
+          <option selected disabled>Selecione</option>
+          <option>Projeto</option>
+          <option>Validação</option>
+          <option>Registro do Projeto</option>
+          <option>Negociação Off-chain</option>
+          <option>Negociação On-chain</option>
+          <option>Aposentado</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold"><i class="fa-solid fa-handshake"></i> Modalidade de Negociação</label>
+        <select class="form-select">
+          <option selected disabled>Selecione</option>
+          <option>Spot</option>
+          <option>Forward</option>
+          <option>Swap</option>
+          <option>OTC</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label fw-bold"><i class="fa-solid fa-cubes"></i> Quantidade (tCO2)</label>
+          <input type="number" class="form-control" placeholder="Ex: 100" />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label fw-bold"><i class="fa-solid fa-dollar-sign"></i> Preço (US$/tCO2)</label>
+          <input type="number" class="form-control" placeholder="Ex: 6.50" />
+        </div>
+      </div>
+
+      <div class="text-end mt-4 d-flex gap-3 justify-content-end">
+        <button class="btn btn-warning px-4 py-2 fw-bold">
+          <i class="fa-solid fa-paper-plane"></i> Enviar para Análise
+        </button>
+        <button class="btn btn-primary px-4 py-2 fw-bold">
+          <i class="fa-solid fa-cloud-arrow-up"></i> Publicar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

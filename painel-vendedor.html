@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eco Carbon Brasil - Painel do Vendedor (Mobile)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body { background: #f4fff7; }
+    .header-bar { background: #0b8f4d; color: white; }
+    .card { border-radius: 14px; }
+    .nav-mobile {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: white; border-top: 1px solid #ccc;
+      display: flex; justify-content: space-around;
+      padding: 10px 0; z-index: 1000;
+    }
+    .nav-mobile a {
+      color: #0b8f4d; text-decoration: none;
+      font-size: 13px; display: flex; flex-direction: column; align-items: center;
+    }
+    .nav-mobile i { font-size: 20px; margin-bottom: 3px; }
+    .credit-card { border-left: 5px solid #0b8f4d; }
+  </style>
+</head>
+<body>
+
+<header class="header-bar px-3 py-2 d-flex align-items-center">
+  <i class="fa-solid fa-seedling fa-2x me-2"></i>
+  <div>
+    <div class="fw-bold" style="font-size:18px;">Eco Carbon Brasil</div>
+    <small style="opacity:0.9;">Painel do Vendedor</small>
+  </div>
+</header>
+
+<div class="container mt-4 mb-5 pb-4">
+
+  <div class="card shadow-sm p-3 mb-4">
+    <h5 class="fw-bold mb-3"><i class="fa-solid fa-chart-line"></i> Resumo</h5>
+    <div class="row text-center">
+      <div class="col-6 border-end">
+        <h4 class="fw-bold text-success">12</h4>
+        <small class="text-muted">Créditos publicados</small>
+      </div>
+      <div class="col-6">
+        <h4 class="fw-bold text-primary">3</h4>
+        <small class="text-muted">Em análise</small>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="fw-bold mb-3"><i class="fa-solid fa-leaf"></i> Seus Créditos</h5>
+
+  <div class="card credit-card shadow-sm p-3 mb-3">
+    <h6 class="fw-bold">Amazônia Verde 2024</h6>
+    <small class="text-muted d-block">Origem: Reflorestamento</small>
+    <small class="text-muted d-block mb-2">VERRA · Spot</small>
+    <div class="d-flex justify-content-between align-items-center mt-2">
+      <span class="fw-bold">80 tCO₂</span>
+      <div>
+        <button class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-pen"></i> Editar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card credit-card shadow-sm p-3 mb-3">
+    <h6 class="fw-bold">Energia Solar RS</h6>
+    <small class="text-muted d-block">Energia Renovável</small>
+    <small class="text-muted d-block mb-2">Gold Standard · OTC</small>
+    <div class="d-flex justify-content-between align-items-center mt-2">
+      <span class="fw-bold">120 tCO₂</span>
+      <div>
+        <button class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-pen"></i> Editar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card credit-card shadow-sm p-3 mb-3">
+    <h6 class="fw-bold">Projeto AgroCarbono</h6>
+    <small class="text-muted d-block">Agricultura de Baixo Carbono</small>
+    <small class="text-muted d-block mb-2">VERRA · Forward</small>
+    <div class="d-flex justify-content-between align-items-center mt-2">
+      <span class="fw-bold">40 tCO₂</span>
+      <div>
+        <button class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-pen"></i> Editar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-4 mb-5">
+    <a href="anunciar-credito.html" class="btn btn-success fw-bold px-4 py-2">
+      <i class="fa-solid fa-plus"></i> Anunciar novo crédito
+    </a>
+  </div>
+
+</div>
+
+<nav class="nav-mobile shadow-lg">
+  <a href="index.html">
+    <i class="fa-solid fa-house"></i>
+    Início
+  </a>
+  <a href="anunciar-credito.html">
+    <i class="fa-solid fa-plus-circle"></i>
+    Anunciar
+  </a>
+  <a href="painel-vendedor.html" class="fw-bold">
+    <i class="fa-solid fa-user"></i>
+    Meu Painel
+  </a>
+</nav>
+
+</body>
+</html>

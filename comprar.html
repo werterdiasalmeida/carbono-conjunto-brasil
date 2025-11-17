@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco Carbon Brasil – Comprar Créditos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #f5fff8;
+      color: #333;
+    }
+    .hero {
+      background: linear-gradient(135deg,#00e676,#00c853);
+      color: #fff;
+      padding: 60px 0;
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+    .search-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      margin-top: -40px;
+    }
+    .credit-card {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform .25s ease;
+    }
+    .credit-card:hover {
+      transform: scale(1.03);
+    }
+    .badge-custom {
+      background: #00c853;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero text-center">
+    <div class="container">
+      <h1 class="fw-bold">Comprar Créditos de Carbono</h1>
+      <p class="lead mb-0">Explore créditos confiáveis, verificados e de impacto real no meio ambiente.</p>
+    </div>
+  </section>
+
+  <!-- BUSCA -->
+  <div class="container search-box">
+    <form class="row g-3 align-items-center">
+      <div class="col-md-4">
+        <label class="form-label fw-semibold">Pesquisar crédito</label>
+        <input type="text" class="form-control" placeholder="Ex: Amazônia, Reflorestamento...">
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label fw-semibold">Origem</label>
+        <select class="form-select">
+          <option>Todas</option>
+          <option>Reflorestamento</option>
+          <option>Preservação Florestal</option>
+          <option>Energia Renovável</option>
+          <option>Agricultura de Baixo Carbono</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label fw-semibold">Situação</label>
+        <select class="form-select">
+          <option>Todas</option>
+          <option>Projeto</option>
+          <option>Validação</option>
+          <option>Registro</option>
+          <option>Negociação Off-chain</option>
+          <option>Negociação On-chain</option>
+          <option>Aposentado</option>
+        </select>
+      </div>
+
+      <div class="col-md-2 d-flex align-items-end">
+        <button class="btn btn-success w-100"><i class="bi bi-search"></i> Buscar</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- LISTA DE CRÉDITOS -->
+  <div class="container mt-5 mb-5">
+    <div class="row g-4">
+
+      <!-- CARD EXEMPLO -->
+      <div class="col-md-4">
+        <div class="card credit-card p-3">
+          <div class="d-flex justify-content-between align-items-start">
+            <span class="badge badge-custom">Reflorestamento</span>
+            <i class="bi bi-tree-fill fs-3 text-success"></i>
+          </div>
+
+          <h5 class="mt-2 fw-bold">Floresta Viva – Amazônia</h5>
+          <p class="text-muted small">Projeto certificado VERRA</p>
+
+          <ul class="list-unstyled small mb-3">
+            <li><i class="bi bi-graph-up-arrow text-success"></i> Situação: <strong>Validação</strong></li>
+            <li><i class="bi bi-currency-dollar text-success"></i> Preço: <strong>US$ 11,40 / tCO2</strong></li>
+            <li><i class="bi bi-box-seam text-success"></i> Quantidade: <strong>12.000 tCO2</strong></li>
+          </ul>
+
+          <a href="detalhe.html" class="btn btn-outline-success w-100">Ver detalhes</a>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="col-md-4">
+        <div class="card credit-card p-3">
+          <div class="d-flex justify-content-between align-items-start">
+            <span class="badge badge-custom">Energia Renovável</span>
+            <i class="bi bi-lightning-charge-fill fs-3 text-warning"></i>
+          </div>
+
+          <h5 class="mt-2 fw-bold">Solar Nordeste – Brasil</h5>
+          <p class="text-muted small">Gold Standard</p>
+
+          <ul class="list-unstyled small mb-3">
+            <li><i class="bi bi-graph-up-arrow text-success"></i> Situação: <strong>Registro</strong></li>
+            <li><i class="bi bi-currency-dollar text-success"></i> Preço: <strong>US$ 8,20 / tCO2</strong></li>
+            <li><i class="bi bi-box-seam text-success"></i> Quantidade: <strong>4.800 tCO2</strong></li>
+          </ul>
+
+          <a href="detalhe.html" class="btn btn-outline-success w-100">Ver detalhes</a>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="col-md-4">
+        <div class="card credit-card p-3">
+          <div class="d-flex justify-content-between align-items-start">
+            <span class="badge badge-custom">Agricultura Sustentável</span>
+            <i class="bi bi-flower3 fs-3 text-success"></i>
+          </div>
+
+          <h5 class="mt-2 fw-bold">Agro Verde – Mato Grosso</h5>
+          <p class="text-muted small">VERRA</p>
+
+          <ul class="list-unstyled small mb-3">
+            <li><i class="bi bi-graph-up-arrow text-success"></i> Situação: <strong>Negociação Off-chain</strong></li>
+            <li><i class="bi bi-currency-dollar text-success"></i> Preço: <strong>US$ 9,80 / tCO2</strong></li>
+            <li><i class="bi bi-box-seam text-success"></i> Quantidade: <strong>7.200 tCO2</strong></li>
+          </ul>
+
+          <a href="detalhe.html" class="btn btn-outline-success w-100">Ver detalhes</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

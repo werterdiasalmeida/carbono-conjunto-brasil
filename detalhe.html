@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco Carbon Brasil – Detalhes do Crédito</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #f5fff8;
+    }
+    .header-box {
+      background: linear-gradient(135deg,#00e676,#00c853);
+      color: #fff;
+      padding: 50px 0;
+      border-radius: 0 0 35px 35px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+    .info-card {
+      border-radius: 20px;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .tag {
+      background: #00c853;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .btn-premium {
+      background: linear-gradient(135deg,#00c853,#00e676);
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: all .3s ease;
+    }
+    .btn-premium:hover {
+      transform: scale(1.06);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <section class="header-box text-center">
+    <div class="container">
+      <h1 class="fw-bold">Floresta Viva – Amazônia</h1>
+      <p class="lead">Crédito certificado VERRA – Reflorestamento</p>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO -->
+  <div class="container my-5">
+    <div class="row g-4">
+
+      <!-- LADO ESQUERDO -->
+      <div class="col-lg-8">
+        <div class="card info-card p-4">
+          <h4 class="fw-bold mb-3"><i class="bi bi-info-circle-fill text-success"></i> Informações do Crédito</h4>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <p class="fw-semibold">Origem:</p>
+              <span class="tag">Reflorestamento</span>
+            </div>
+            <div class="col-md-6">
+              <p class="fw-semibold">Tipo:</p>
+              <span class="tag">VERRA</span>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <p class="fw-semibold">Situação atual:</p>
+              <span class="tag">Validação</span>
+            </div>
+            <div class="col-md-6">
+              <p class="fw-semibold">Modalidade:</p>
+              <span class="tag">SPOT</span>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <p class="fw-semibold">Quantidade disponível:</p>
+              <span class="tag">12.000 tCO2</span>
+            </div>
+            <div class="col-md-6">
+              <p class="fw-semibold">Preço unitário:</p>
+              <span class="tag">US$ 11,40</span>
+            </div>
+          </div>
+
+          <h5 class="fw-bold mt-4">Descrição</h5>
+          <p>Projeto voltado para o reflorestamento de áreas degradadas na região amazônica, promovendo recuperação ambiental, captura de carbono e desenvolvimento sustentável para comunidades locais.</p>
+
+        </div>
+      </div>
+
+      <!-- LADO DIREITO -->
+      <div class="col-lg-4">
+        <div class="card info-card p-4 text-center">
+          <h4 class="fw-bold mb-3"><i class="bi bi-cart-check-fill text-success"></i> Comprar</h4>
+
+          <p class="mb-1">Preço:</p>
+          <h2 class="fw-bold text-success">US$ 11,40</h2>
+
+          <p class="mt-3">Quantidade desejada (tCO2):</p>
+          <input type="number" class="form-control mb-3" min="1" placeholder="Ex: 200">
+
+          <a href="comprar-cadastro.html" class="btn btn-premium w-100 mt-2">Continuar</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
