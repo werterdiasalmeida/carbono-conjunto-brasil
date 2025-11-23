@@ -1,145 +1,380 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carbono Conjunto Brasil</title>
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --green-1: #0d7a32;
-            --green-2: #095a24;
-            --gray-1: #f5f5f5;
-            --gray-2: #ececec;
-            --text-dark: #222;
-            --text-light: #666;
-            --radius: 14px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            margin: 0;
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: var(--gray-1);
-            color: var(--text-dark);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
         }
 
         header {
-            text-align: center;
-            padding: 45px 20px;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            background: #2c5530;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo-area {
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            font-size: 1.2rem;
         }
 
         .logo-area i {
-            font-size: 40px;
-            color: var(--green-1);
+            font-size: 1.8rem;
+            color: #4CAF50;
         }
 
         .brand {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 0;
+            font-weight: bold;
         }
 
-        .subtitle {
-            font-size: 14px;
-            color: var(--text-light);
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
         }
 
-        .container {
-            padding: 40px 20px;
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2c5530, #4a7c59);
+            color: white;
             text-align: center;
-            flex: 1;
+            padding: 4rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .btn {
-            display: block;
-            margin: 15px auto;
-            padding: 14px 25px;
-            background: var(--green-1);
+            display: inline-block;
+            padding: 12px 30px;
+            background: #4CAF50;
             color: white;
             text-decoration: none;
-            font-size: 18px;
-            width: 280px;
-            border-radius: var(--radius);
-            font-weight: 600;
-            transition: 0.25s;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background 0.3s;
         }
 
         .btn:hover {
-            background: var(--green-2);
-            transform: translateY(-2px);
+            background: #45a049;
         }
 
-        .descricao {
-            margin-top: 45px;
-            padding: 25px;
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
             background: white;
-            max-width: 900px;
+            color: #2c5530;
+        }
+
+        .features {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c5530;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: #2c5530;
+        }
+
+        .objectives {
+            padding: 4rem 0;
+            background: #2c5530;
+            color: white;
+        }
+
+        .objectives h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .objective-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .objective-card h3 {
+            margin-bottom: 1rem;
+            color: #4CAF50;
+        }
+
+        .impact {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .impact h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c5530;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .impact-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .impact-card i {
+            font-size: 2.5rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+
+        .impact-card h3 {
+            margin-bottom: 1rem;
+            color: #2c5530;
+        }
+
+        .cta {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #2c5530, #4a7c59);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            margin-bottom: 2rem;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            border-radius: var(--radius);
-            font-size: 18px;
-            line-height: 1.6;
-            color: var(--text-light);
-            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
         }
 
         footer {
+            background: #1e3a24;
+            color: white;
             text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            color: #777;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                display: block;
+                margin: 10px auto;
+                max-width: 200px;
+            }
         }
     </style>
 </head>
-
 <body>
-
     <header>
-        <div class="logo-area">
-            <i class="fa-solid fa-seedling"></i>
-            <div>
+        <div class="container nav-container">
+            <div class="logo-area">
+                <i class="fa-solid fa-seedling"></i>
                 <div class="brand">Carbono Conjunto Brasil</div>
-                <div class="subtitle">Soluções em Créditos de Carbono</div>
             </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="projeto.html">O Projeto</a></li>
+                    <li><a href="prototipo.html">Plataforma</a></li>
+                    <li><a href="detalhe.html" class="active">Demonstração</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <div class="container">
-
-        <a href="projeto.html" class="btn">
-            <i class="fa-solid fa-leaf me-2"></i> Sobre o Projeto
-        </a>
-
-        <a href="prototipo.html" class="btn">
-            <i class="fa-solid fa-mobile-screen-button me-2"></i> Protótipo
-        </a>
-
-        <div class="descricao">
-            O Carbono Conjunto Brasil nasce como uma plataforma moderna para facilitar a 
-            interação entre compradores e vendedores de créditos de carbono,
-            promovendo transparência, segurança e tecnologia acessível para impulsionar 
-            o mercado ambiental brasileiro.
+    <section class="hero">
+        <div class="container">
+            <h1>Democratizando o Mercado de Carbono no Brasil</h1>
+            <p>Uma plataforma inovadora para incluir pequenos produtores rurais no mercado de créditos de carbono</p>
+            <div>
+                <a href="projeto.html" class="btn">Conhecer o Projeto</a>
+                <a href="prototipo.html" class="btn btn-outline">Ver Protótipo</a>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>O Que Oferecemos</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                    <h3>Monetização Antecipada</h3>
+                    <p>Tokens FTCO2 permitem receber por créditos antes da certificação final</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-file-contract"></i>
+                    <h3>Certificação Simplificada</h3>
+                    <p>Processo digital e acessível para pequenos produtores</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-handshake"></i>
+                    <h3>Mercado Transparente</h3>
+                    <p>Plataforma segura para compradores e vendedores</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="objectives">
+        <div class="container">
+            <h2>Objetivos do Projeto</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <h3>Inclusão Social</h3>
+                    <p>Democratizar o acesso ao mercado de carbono para pequenos produtores e comunidades tradicionais</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Transparência</h3>
+                    <p>Garantir rastreabilidade completa e evitar dupla contagem de créditos</p>
+                </div>
+                <div class="objective-card">
+                    <h3>Desenvolvimento Sustentável</h3>
+                    <p>Aliar crescimento econômico à preservação ambiental</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact">
+        <div class="container">
+            <h2>Impacto Esperado</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <i class="fa-solid fa-tractor"></i>
+                    <h3>Para Produtores</h3>
+                    <p>Nova fonte de renda através de práticas sustentáveis</p>
+                </div>
+                <div class="impact-card">
+                    <i class="fa-solid fa-building"></i>
+                    <h3>Para Empresas</h3>
+                    <p>Acesso a créditos de carbono confiáveis e rastreáveis</p>
+                </div>
+                <div class="impact-card">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <h3>Para o Meio Ambiente</h3>
+                    <p>Incentivo à conservação e práticas sustentáveis</p>
+                </div>
+                <div class="impact-card">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Para a Economia</h3>
+                    <p>Fortalecimento do mercado voluntário de carbono</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Interessado em Apoiar Este Projeto?</h2>
+            <p>Junte-se a nós para democratizar o mercado de carbono no Brasil e criar impacto positivo</p>
+            <div>
+                <a href="projeto.html" class="btn">Saber Mais</a>
+                <a href="#contato" class="btn btn-outline">Entrar em Contato</a>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        © 2025 Carbono Conjunto Brasil
+        <div class="container">
+            <p>&copy; 2024 Carbono Conjunto Brasil. Todos os direitos reservados.</p>
+            <p>Projeto em desenvolvimento para inclusão no mercado de créditos de carbono</p>
+        </div>
     </footer>
-
 </body>
 </html>

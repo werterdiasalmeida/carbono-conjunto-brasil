@@ -1,151 +1,473 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Carbono Conjunto Brasil</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionamento da Plataforma - Carbono Conjunto Brasil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background: linear-gradient(135deg, #a8ffbf, #5cd4ff);
-            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
         }
 
-        .navbar-premium {
-            backdrop-filter: blur(6px);
-            background: rgba(255, 255, 255, 0.7) !important;
+        header {
+            background: #2c5530;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .hero-section {
-            padding: 10px 0;
-            color: #ffffff;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        .hero-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .hero-subtitle {
-            font-size: 1.4rem;
-            margin-top: 15px;
-        }
-
-        .feature-card {
-            border-radius: 18px;
-            transition: 0.3s;
-            border: none;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
-        }
-
-        .icon-feature {
-            font-size: 2.4rem;
-            color: #1e9d50;
-            margin-bottom: 10px;
-        }
-
-        .premium-cta {
-            background: linear-gradient(135deg, #00c853, #00e676);
-            color: #fff !important;
-            padding: 14px 28px;
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 1.2rem;
-            font-weight: 700;
-            border: none;
-            border-radius: 50px;
-            box-shadow: 0 4px 12px rgba(0, 200, 83, 0.4);
-            transition: all .3s ease;
         }
 
-        .premium-cta:hover {
-            background: linear-gradient(135deg, #00e676, #69f0ae);
-            transform: scale(1.06);
-            box-shadow: 0 6px 18px rgba(0, 200, 83, 0.55);
+        .logo-area i {
+            font-size: 1.8rem;
+            color: #4CAF50;
         }
 
-        :root {
-            --green-1: #2ecc71;
+        .brand {
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .page-hero {
+            background: linear-gradient(135deg, #2c5530, #4a7c59);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .content-section.alternate {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c5530;
+        }
+
+        .platforms-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .platform-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid #4CAF50;
+        }
+
+        .platform-card.creation {
+            border-top-color: #2c5530;
+        }
+
+        .platform-card.trading {
+            border-top-color: #4a7c59;
+        }
+
+        .platform-card h3 {
+            color: #2c5530;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .actors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .actor-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .process-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #4CAF50;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: #4CAF50;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .token-explanation {
+            background: linear-gradient(135deg, #2c5530, #4a7c59);
+            color: white;
+            padding: 3rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+        }
+
+        .tokens-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .token-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .token-card.ftco2 {
+            border: 2px solid #FFD700;
+        }
+
+        .token-card.tco2 {
+            border: 2px solid #4CAF50;
+        }
+
+        .demo-cta {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #45a049;
+        }
+
+        footer {
+            background: #1e3a24;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .platforms-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .tokens-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-
 <body>
-
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light navbar-premium shadow-sm">
-        <div class="container">
-
-            <!-- LOGO BONITA -->
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <i class="fa-solid fa-seedling fa-2x me-2" style="color:var(--green-1)"></i>
-                <span class="fw-bold text-success">Carbono Conjunto Brasil</span>
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Início</a></li>
-                    <li class="nav-item"><a class="nav-link fw-semibold" href="comprar.html">Comprar</a></li>
-                    <li class="nav-item"><a class="nav-link fw-semibold" href="vender.html">Vender</a></li>
+    <header>
+        <div class="container nav-container">
+            <div class="logo-area">
+                <i class="fa-solid fa-seedling"></i>
+                <div class="brand">Carbono Conjunto Brasil</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="projeto.html">O Projeto</a></li>
+                    <li><a href="prototipo.html" class="active">Plataforma</a></li>
+                    <li><a href="detalhe.html" class="active">Demonstração</a></li>
                 </ul>
-            </div>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-
-    <!-- HERO SECTION -->
-    <section class="hero-section text-center">
+    <section class="page-hero">
         <div class="container">
-            <h1 class="hero-title">Negocie Créditos de Carbono com Transparência e Impacto</h1>
-            <p class="hero-subtitle">Uma plataforma moderna, sustentável e confiável para compra e venda de créditos no
-                mercado voluntário.</p>
-            <a href="comprar.html" class="btn btn-lg btn-light mt-4 px-5 shadow-sm fw-bold premium-cta">Quero Comprar
-                Créditos de Carbono</a>
-            <a href="vender.html" class="btn btn-lg btn-light mt-4 px-5 shadow-sm fw-bold premium-cta">Quero Criar ou
-                Vender Créditos de Carbono</a>
+            <h1>Funcionamento da Plataforma</h1>
+            <p>Conheça como o sistema irá operar em suas duas partes principais</p>
         </div>
     </section>
-    <!-- FEATURES -->
-    <section class="py-5">
+
+    <section class="content-section">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="p-4 bg-white feature-card shadow-sm h-100 text-center">
-                        <i class="fa-solid fa-leaf icon-feature"></i>
-                        <h5 class="fw-bold text-success">Sustentabilidade Real</h5>
-                        <p>Créditos auditados, com origem comprovada em projetos ambientais reais e certificados.</p>
+            <h2 class="section-title">Arquitetura do Sistema</h2>
+            <div class="platforms-overview">
+                <div class="platform-card creation">
+                    <h3><i class="fa-solid fa-certificate"></i> Plataforma de Criação e Certificação</h3>
+                    <p><strong>Objetivo:</strong> Acompanhar todo o processo desde o cadastro até a tokenização final dos créditos</p>
+                    
+                    <h4 style="margin: 1.5rem 0 1rem 0; color: #2c5530;">Atores Envolvidos:</h4>
+                    <div class="actors-grid">
+                        <div class="actor-card">
+                            <i class="fa-solid fa-user"></i>
+                            <h5>Proprietário</h5>
+                            <small>Dono do ativo ambiental</small>
+                        </div>
+                        <div class="actor-card">
+                            <i class="fa-solid fa-people-group"></i>
+                            <h5>Entidade de Agrupamento</h5>
+                            <small>Cooperativas, associações</small>
+                        </div>
+                        <div class="actor-card">
+                            <i class="fa-solid fa-building"></i>
+                            <h5>Consultoria</h5>
+                            <small>Empresas especializadas</small>
+                        </div>
+                        <div class="actor-card">
+                            <i class="fa-solid fa-gears"></i>
+                            <h5>Plataforma</h5>
+                            <small>Controle de tokens</small>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="p-4 bg-white feature-card shadow-sm h-100 text-center">
-                        <i class="fa-solid fa-globe icon-feature"></i>
-                        <h5 class="fw-bold text-success">Transparência Total</h5>
-                        <p>Acompanhe cada etapa do crédito: origem, certificação, rastreabilidade e histórico.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4 bg-white feature-card shadow-sm h-100 text-center">
-                        <i class="fa-solid fa-handshake icon-feature"></i>
-                        <h5 class="fw-bold text-success">Negociação Simples</h5>
-                        <p>Fluxo rápido para compra e venda, incluindo operações on-chain e off-chain.</p>
+
+                <div class="platform-card trading">
+                    <h3><i class="fa-solid fa-chart-line"></i> Plataforma de Negociação</h3>
+                    <p><strong>Objetivo:</strong> Comercializar os créditos tokenizados de forma segura e transparente</p>
+                    
+                    <h4 style="margin: 1.5rem 0 1rem 0; color: #2c5530;">Atores Envolvidos:</h4>
+                    <div class="actors-grid">
+                        <div class="actor-card">
+                            <i class="fa-solid fa-user"></i>
+                            <h5>Proprietário</h5>
+                            <small>Vendedor de créditos</small>
+                        </div>
+                        <div class="actor-card">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <h5>Comprador</h5>
+                            <small>Consumidor do crédito</small>
+                        </div>
+                        <div class="actor-card">
+                            <i class="fa-solid fa-handshake"></i>
+                            <h5>Corretora</h5>
+                            <small>Intermediação</small>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <a href="index.html" class="btn btn-outline-success w-100">
-        <i class="bi bi-arrow-left"></i> Sair
-    </a>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <section class="content-section alternate">
+        <div class="container">
+            <h2 class="section-title">Processo de Criação e Certificação</h2>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Cadastro do Proprietário e Ativo</h3>
+                    <p>Cadastro completo dos dados do proprietário e da propriedade/projeto, incluindo fotos, vídeos e documentação necessária para contato pela entidade de agrupamento.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Agrupamento dos Créditos</h3>
+                    <p>A entidade de agrupamento (cooperativa, associação) entra em contato com os proprietários e cria grupos para consolidar documentação e iniciar o processo de certificação.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Abertura do Processo de Certificação</h3>
+                    <p>A empresa especializada inicia junto à certificadora escolhida o processo de certificação, registrando cada etapa alcançada diretamente na plataforma.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Criação do FTCO2 (Token Forward)</h3>
+                    <p>Ao iniciar o processo de certificação, a plataforma automaticamente cria tokens FTCO2, que já podem ser negociados na plataforma de negociação.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Certificação Final do Crédito</h3>
+                    <p>Ao final do processo, o crédito é certificado pela entidade verificadora e fica apto para conversão em TCO2.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h3>Tokenização Final - TCO2</h3>
+                    <p>Os tokens FTCO2 são convertidos automaticamente em TCO2 e retornam para a mesa de negociação como créditos certificados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Sistema de Tokens</h2>
+            <div class="token-explanation">
+                <h3 style="text-align: center; margin-bottom: 1rem;">Tipos de Tokens</h3>
+                <p style="text-align: center; opacity: 0.9;">Sistema dual de tokens para diferentes estágios do crédito</p>
+                
+                <div class="tokens-grid">
+                    <div class="token-card ftco2">
+                        <h4><i class="fa-solid fa-forward"></i> FTCO2</h4>
+                        <p><strong>Token Forward</strong></p>
+                        <p>Criado no início do processo de certificação</p>
+                        <p>Permite monetização antecipada</p>
+                        <p>Negociável durante a certificação</p>
+                    </div>
+                    
+                    <div class="token-card tco2">
+                        <h4><i class="fa-solid fa-check-circle"></i> TCO2</h4>
+                        <p><strong>Token Final</strong></p>
+                        <p>Crédito totalmente certificado</p>
+                        <p>Conversão automática do FTCO2</p>
+                        <p>Pronto para uso e "burn"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section alternate">
+        <div class="container">
+            <h2 class="section-title">Processo de Negociação</h2>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Integração Automática</h3>
+                    <p>Os tokens criados na plataforma de certificação são automaticamente importados para a plataforma de negociação.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Publicação dos Créditos</h3>
+                    <p>O proprietário ou corretor autorizado publica os tokens (FTCO2 ou TCO2) que deseja disponibilizar para venda.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Negociação e Pagamento</h3>
+                    <p>Os tokens são negociados em mesa de negociação com sistema seguro de pagamento e confirmação.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Transferência Automática</h3>
+                    <p>A plataforma transfere automaticamente os valores pagos ao proprietário e os tokens ao comprador.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Utilização (Burn)</h3>
+                    <p>Ao utilizar o token para compensação, a plataforma executa o "burn" (queima), tornando o crédito indisponível e evitando dupla contagem.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h3>Painéis de Acompanhamento</h3>
+                    <p>Compradores e vendedores acompanham seus tokens através de painéis que mostram tokens ativos, em negociação ou já utilizados (burn).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="demo-cta">
+                <h2 class="section-title">Quer Ver na Prática?</h2>
+                <p>Explore nosso protótipo interativo para entender melhor o funcionamento da plataforma</p>
+                <a href="detalhe.html" class="btn">
+                    <i class="fa-solid fa-play"></i>
+                    Acessar Demonstração
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Carbono Conjunto Brasil. Todos os direitos reservados.</p>
+            <p>Projeto em desenvolvimento para inclusão no mercado de créditos de carbono</p>
+        </div>
+    </footer>
 </body>
-
 </html>

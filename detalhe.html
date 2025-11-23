@@ -1,140 +1,937 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carbono Conjunto Brasil – Detalhes do Crédito</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstração Detalhada - Carbono Conjunto Brasil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    body {
-      background: #f5fff8;
-    }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
 
-    .header-box {
-      background: linear-gradient(135deg, #00e676, #00c853);
-      color: #fff;
-      padding: 50px 0;
-      border-radius: 0 0 35px 35px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    }
+        header {
+            background: #2c5530;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-    .info-card {
-      border-radius: 20px;
-      border: none;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-    .tag {
-      background: #00c853;
-      color: #fff;
-      padding: 6px 14px;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .btn-premium {
-      background: linear-gradient(135deg, #00c853, #00e676);
-      color: #fff;
-      border: none;
-      padding: 14px 28px;
-      font-size: 1.2rem;
-      font-weight: 600;
-      border-radius: 50px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: all .3s ease;
-    }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+        }
 
-    .btn-premium:hover {
-      transform: scale(1.06);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-    }
-  </style>
+        .logo-area i {
+            font-size: 1.8rem;
+            color: #4CAF50;
+        }
+
+        .brand {
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .page-hero {
+            background: linear-gradient(135deg, #2c5530, #4a7c59);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .demo-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .demo-section.alternate {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c5530;
+        }
+
+        .platform-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab.active {
+            border-bottom-color: #4CAF50;
+            color: #2c5530;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .demo-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid #e0e0e0;
+        }
+
+        .demo-card.featured {
+            border-color: #4CAF50;
+            background: linear-gradient(135deg, #f8fff8, #ffffff);
+        }
+
+        .demo-card h3 {
+            color: #2c5530;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #2c5530;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #45a049;
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #4CAF50;
+            color: #2c5530;
+        }
+
+        .btn-outline:hover {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .token-preview {
+            background: #2c5530;
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .token-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            text-align: left;
+            margin: 1rem 0;
+        }
+
+        .token-detail {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        .token-id {
+            font-family: monospace;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            word-break: break-all;
+            font-size: 1.1rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .status-ftco2 {
+            background: #FFD700;
+            color: #333;
+        }
+
+        .status-tco2 {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .status-pending {
+            background: #ff9800;
+            color: white;
+        }
+
+        .status-certified {
+            background: #2196F3;
+            color: white;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e0e0e0;
+            z-index: 1;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: bold;
+        }
+
+        .step.active .step-circle {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .step.completed .step-circle {
+            background: #2c5530;
+            color: white;
+        }
+
+        .dashboard-preview {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c5530;
+        }
+
+        .token-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .token-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            transition: background 0.3s;
+        }
+
+        .token-item:hover {
+            background: #f8f9fa;
+        }
+
+        .token-item:last-child {
+            border-bottom: none;
+        }
+
+        .token-info {
+            flex: 1;
+        }
+
+        .token-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .marketplace {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .offer-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        .offer-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .offer-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c5530;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #4CAF50;
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+
+        footer {
+            background: #1e3a24;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .platform-tabs {
+                flex-direction: column;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .marketplace {
+                grid-template-columns: 1fr;
+            }
+
+            .token-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-  <!-- HEADER -->
-  <section class="header-box text-center">
-    <div class="container">
-      <h1 class="fw-bold">Floresta Viva – Amazônia</h1>
-      <p class="lead">Crédito certificado VERRA – Reflorestamento</p>
-    </div>
-  </section>
-
-  <!-- CONTEÚDO -->
-  <div class="container my-5">
-    <div class="row g-4">
-
-      <!-- LADO ESQUERDO -->
-      <div class="col-lg-8">
-        <div class="card info-card p-4">
-          <h4 class="fw-bold mb-3"><i class="bi bi-info-circle-fill text-success"></i> Informações do Crédito</h4>
-
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <p class="fw-semibold">Origem:</p>
-              <span class="tag">Reflorestamento</span>
+    <header>
+        <div class="container nav-container">
+            <div class="logo-area">
+                <i class="fa-solid fa-seedling"></i>
+                <div class="brand">Carbono Conjunto Brasil</div>
             </div>
-            <div class="col-md-6">
-              <p class="fw-semibold">Tipo:</p>
-              <span class="tag">VERRA</span>
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <p class="fw-semibold">Situação atual:</p>
-              <span class="tag">Validação</span>
-            </div>
-            <div class="col-md-6">
-              <p class="fw-semibold">Modalidade:</p>
-              <span class="tag">SPOT</span>
-            </div>
-          </div>
-
-          <div class="row mb-4">
-            <div class="col-md-6">
-              <p class="fw-semibold">Quantidade disponível:</p>
-              <span class="tag">12.000 tCO2</span>
-            </div>
-            <div class="col-md-6">
-              <p class="fw-semibold">Preço unitário:</p>
-              <span class="tag">US$ 11,40</span>
-            </div>
-          </div>
-
-          <h5 class="fw-bold mt-4">Descrição</h5>
-          <p>Projeto voltado para o reflorestamento de áreas degradadas na região amazônica, promovendo recuperação
-            ambiental, captura de carbono e desenvolvimento sustentável para comunidades locais.</p>
-
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="projeto.html">O Projeto</a></li>
+                    <li><a href="prototipo.html">Plataforma</a></li>
+                    <li><a href="detalhe.html" class="active">Demonstração</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
+    </header>
 
-      <!-- LADO DIREITO -->
-      <div class="col-lg-4">
-        <div class="card info-card p-4 text-center">
-          <h4 class="fw-bold mb-3"><i class="bi bi-cart-check-fill text-success"></i> Comprar</h4>
-
-          <p class="mb-1">Preço:</p>
-          <h2 class="fw-bold text-success">US$ 11,40</h2>
-
-          <p class="mt-3">Quantidade desejada (tCO2):</p>
-          <input type="number" class="form-control mb-3" min="1" placeholder="Ex: 200">
-
-          <a href="comprar-cadastro.html" class="btn btn-premium w-100 mt-2">Continuar</a>
+    <section class="page-hero">
+        <div class="container">
+            <h1>Demonstração Interativa da Plataforma</h1>
+            <p>Experimente todas as funcionalidades do sistema de criação e negociação de créditos de carbono</p>
         </div>
-      </div>
-      <a href="comprar.html" class="btn btn-outline-success w-100">
-        <i class="bi bi-arrow-left"></i> Voltar
-      </a>
-    </div>
-  </div>
+    </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <section class="demo-section">
+        <div class="container">
+            <div class="platform-tabs">
+                <button class="tab active" onclick="switchTab('creation')">
+                    <i class="fa-solid fa-certificate"></i> Plataforma de Criação
+                </button>
+                <button class="tab" onclick="switchTab('trading')">
+                    <i class="fa-solid fa-chart-line"></i> Plataforma de Negociação
+                </button>
+                <button class="tab" onclick="switchTab('dashboard')">
+                    <i class="fa-solid fa-gauge"></i> Painel de Controle
+                </button>
+            </div>
+
+            <!-- TAB: CRIAÇÃO -->
+            <div id="creation-tab" class="tab-content active">
+                <h2 class="section-title">Criação e Certificação de Créditos</h2>
+                <div class="demo-grid">
+                    <div class="demo-card featured">
+                        <h3><i class="fa-solid fa-plus-circle"></i> Cadastrar Novo Projeto</h3>
+                        
+                        <div class="form-group">
+                            <label for="projectName">Nome do Projeto *</label>
+                            <input type="text" id="projectName" class="form-control" placeholder="Ex: Reflorestamento Serra da Mantiqueira">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="projectType">Tipo de Projeto *</label>
+                                <select id="projectType" class="form-control">
+                                    <option value="">Selecione o tipo</option>
+                                    <option value="reflorestamento">Reflorestamento</option>
+                                    <option value="conservacao">Conservação Florestal</option>
+                                    <option value="agricultura">Agricultura Sustentável</option>
+                                    <option value="energia">Energia Renovável</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="propertySize">Área (hectares) *</label>
+                                <input type="number" id="propertySize" class="form-control" placeholder="Ex: 50">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="carbonEstimate">Estimativa de Créditos (ton CO₂/ano)</label>
+                                <input type="number" id="carbonEstimate" class="form-control" placeholder="Ex: 1000">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="certificationBody">Organismo Certificador</label>
+                                <select id="certificationBody" class="form-control">
+                                    <option value="">Selecione o certificador</option>
+                                    <option value="verra">Verra</option>
+                                    <option value="gold-standard">Gold Standard</option>
+                                    <option value="act">ACT</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectDescription">Descrição do Projeto</label>
+                            <textarea id="projectDescription" class="form-control" rows="3" placeholder="Descreva as características principais do projeto..."></textarea>
+                        </div>
+
+                        <button class="btn btn-block" onclick="createProject()">
+                            <i class="fa-solid fa-play"></i> Iniciar Processo de Certificação
+                        </button>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3><i class="fa-solid fa-list-check"></i> Andamento da Certificação</h3>
+                        
+                        <div class="process-steps">
+                            <div class="step completed" id="step1">
+                                <div class="step-circle">1</div>
+                                <div>Cadastro</div>
+                            </div>
+                            <div class="step" id="step2">
+                                <div class="step-circle">2</div>
+                                <div>Agrupamento</div>
+                            </div>
+                            <div class="step" id="step3">
+                                <div class="step-circle">3</div>
+                                <div>Análise Técnica</div>
+                            </div>
+                            <div class="step" id="step4">
+                                <div class="step-circle">4</div>
+                                <div>Verificação</div>
+                            </div>
+                            <div class="step" id="step5">
+                                <div class="step-circle">5</div>
+                                <div>Certificação</div>
+                            </div>
+                        </div>
+
+                        <div class="token-preview" id="tokenPreview">
+                            <h4><i class="fa-solid fa-forward"></i> Status do Token</h4>
+                            <div class="token-id">Aguardando início do projeto...</div>
+                            <div class="token-details">
+                                <div class="token-detail">
+                                    <strong>Tipo:</strong> <span id="tokenType">-</span>
+                                </div>
+                                <div class="token-detail">
+                                    <strong>Créditos Estimados:</strong> <span id="estimatedCredits">-</span>
+                                </div>
+                                <div class="token-detail">
+                                    <strong>Data de Criação:</strong> <span id="creationDate">-</span>
+                                </div>
+                                <div class="token-detail">
+                                    <strong>Próxima Etapa:</strong> <span id="nextStep">-</span>
+                                </div>
+                            </div>
+                            <div id="tokenStatus">
+                                <span class="status-badge status-pending">AGUARDANDO</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 2rem;">
+                            <button class="btn btn-outline btn-block" onclick="advanceCertification()">
+                                <i class="fa-solid fa-forward"></i> Avançar para Próxima Etapa
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: NEGOCIAÇÃO -->
+            <div id="trading-tab" class="tab-content">
+                <h2 class="section-title">Mesa de Negociação</h2>
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3><i class="fa-solid fa-cart-shopping"></i> Ofertas Disponíveis</h3>
+                        <div class="marketplace">
+                            <div class="offer-card">
+                                <div class="offer-header">
+                                    <h4>FTCO2-001</h4>
+                                    <div class="offer-price">R$ 45,90</div>
+                                </div>
+                                <p><strong>Projeto:</strong> Reflorestamento Serra</p>
+                                <p><strong>Créditos:</strong> 500 ton CO₂</p>
+                                <p><strong>Vendedor:</strong> Cooperativa Verde</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                                <p style="text-align: center; font-size: 0.9rem;">75% do processo concluído</p>
+                                <button class="btn btn-block" onclick="makeOffer('FTCO2-001')">
+                                    <i class="fa-solid fa-handshake"></i> Fazer Oferta
+                                </button>
+                            </div>
+
+                            <div class="offer-card">
+                                <div class="offer-header">
+                                    <h4>TCO2-045</h4>
+                                    <div class="offer-price">R$ 62,50</div>
+                                </div>
+                                <p><strong>Projeto:</strong> Conservação Mata Atlântica</p>
+                                <p><strong>Créditos:</strong> 1.200 ton CO₂</p>
+                                <p><strong>Vendedor:</strong> Associação Ambiental</p>
+                                <div style="background: #e8f5e8; padding: 1rem; border-radius: 5px; text-align: center;">
+                                    <i class="fa-solid fa-check-circle" style="color: #4CAF50;"></i>
+                                    <strong>100% Certificado</strong>
+                                </div>
+                                <button class="btn btn-block" onclick="makeOffer('TCO2-045')">
+                                    <i class="fa-solid fa-bolt"></i> Comprar Agora
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3><i class="fa-solid fa-hand-holding-dollar"></i> Minhas Ofertas</h3>
+                        <div class="token-list">
+                            <div class="token-item">
+                                <div class="token-info">
+                                    <strong>FTCO2-001</strong>
+                                    <div style="font-size: 0.9rem; color: #666;">Oferta: R$ 43,00 • Status: <span class="status-badge status-pending">ANÁLISE</span></div>
+                                </div>
+                                <div class="token-actions">
+                                    <button class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;">
+                                        Editar
+                                    </button>
+                                    <button class="btn" style="padding: 5px 10px; font-size: 0.8rem; background: #ff4444;">
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 2rem;">
+                            <h4>Realizar Nova Oferta</h4>
+                            <div class="form-group">
+                                <label for="offerToken">Token</label>
+                                <select id="offerToken" class="form-control">
+                                    <option value="">Selecione o token</option>
+                                    <option value="FTCO2-001">FTCO2-001</option>
+                                    <option value="TCO2-045">TCO2-045</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="offerPrice">Preço por crédito (R$)</label>
+                                <input type="number" id="offerPrice" class="form-control" placeholder="Ex: 45.90">
+                            </div>
+                            <div class="form-group">
+                                <label for="offerQuantity">Quantidade de créditos</label>
+                                <input type="number" id="offerQuantity" class="form-control" placeholder="Ex: 100">
+                            </div>
+                            <button class="btn btn-block" onclick="createOffer()">
+                                <i class="fa-solid fa-plus"></i> Criar Oferta
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: PAINEL -->
+            <div id="dashboard-tab" class="tab-content">
+                <h2 class="section-title">Painel de Controle Completo</h2>
+                
+                <div class="dashboard-preview">
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value" id="totalTokens">0</div>
+                            <div>Total de Tokens</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="activeTokens">0</div>
+                            <div>Tokens Ativos</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="ftco2Tokens">0</div>
+                            <div>FTCO2 (Forward)</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="tco2Tokens">0</div>
+                            <div>TCO2 (Certificados)</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="totalValue">R$ 0</div>
+                            <div>Valor em Negociação</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="completedTrades">0</div>
+                            <div>Transações Concluídas</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="burnedTokens">0</div>
+                            <div>Créditos Utilizados</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value" id="successRate">0%</div>
+                            <div>Taxa de Sucesso</div>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-bottom: 1rem; color: #2c5530;">Meus Tokens e Ofertas</h4>
+                    <div class="token-list" id="tokenList">
+                        <div class="token-item">
+                            <div class="token-info">
+                                <strong>TCO2-045</strong>
+                                <div style="font-size: 0.9rem; color: #666;">Conservação Mata Atlântica • 1.200 créditos</div>
+                            </div>
+                            <div>
+                                <span class="status-badge status-tco2">TCO2</span>
+                                <span class="status-badge status-certified">CERTIFICADO</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem; text-align: center;">
+                        <button class="btn" onclick="generateReport()">
+                            <i class="fa-solid fa-download"></i> Gerar Relatório Completo
+                        </button>
+                        <button class="btn btn-outline" onclick="simulateBurn()">
+                            <i class="fa-solid fa-fire"></i> Simular "Burn" de Crédito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Carbono Conjunto Brasil. Todos os direitos reservados.</p>
+            <p>Projeto em desenvolvimento para inclusão no mercado de créditos de carbono</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentProject = null;
+        let currentStep = 1;
+
+        function switchTab(tabName) {
+            // Remove active class from all tabs and contents
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // Add active class to selected tab and content
+            document.querySelector(`.tab:nth-child(${tabName === 'creation' ? 1 : tabName === 'trading' ? 2 : 3})`).classList.add('active');
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+        }
+
+        function createProject() {
+            const projectName = document.getElementById('projectName').value;
+            const carbonEstimate = document.getElementById('carbonEstimate').value;
+            
+            if (!projectName) {
+                alert('Por favor, preencha o nome do projeto.');
+                return;
+            }
+
+            currentProject = {
+                name: projectName,
+                credits: carbonEstimate || '500',
+                type: document.getElementById('projectType').value || 'reflorestamento',
+                area: document.getElementById('propertySize').value || '50',
+                certificationBody: document.getElementById('certificationBody').value || 'verra',
+                startDate: new Date().toLocaleDateString('pt-BR')
+            };
+
+            // Gerar token ID
+            const tokenId = 'FTCO2-' + Math.random().toString(36).substr(2, 8).toUpperCase();
+            
+            // Atualizar interface
+            updateCertificationProgress(1);
+            updateTokenPreview(tokenId);
+            updateDashboardMetrics();
+            
+            alert('Projeto criado com sucesso! Token FTCO2 gerado e processo de certificação iniciado.');
+        }
+
+        function advanceCertification() {
+            if (!currentProject) {
+                alert('Crie um projeto primeiro.');
+                return;
+            }
+
+            if (currentStep < 5) {
+                currentStep++;
+                updateCertificationProgress(currentStep);
+                
+                if (currentStep === 3) {
+                    // Atualizar para TCO2 quando chegar na etapa 5
+                    const newTokenId = 'TCO2-' + Math.random().toString(36).substr(2, 8).toUpperCase();
+                    updateTokenPreview(newTokenId, 'TCO2');
+                }
+                
+                alert(`Etapa ${currentStep} do processo de certificação concluída!`);
+            } else {
+                alert('Processo de certificação já foi concluído!');
+            }
+        }
+
+        function updateCertificationProgress(step) {
+            // Reset all steps
+            for (let i = 1; i <= 5; i++) {
+                const stepElement = document.getElementById(`step${i}`);
+                stepElement.className = 'step';
+                if (i < step) {
+                    stepElement.classList.add('completed');
+                } else if (i === step) {
+                    stepElement.classList.add('active');
+                }
+            }
+        }
+
+        function updateTokenPreview(tokenId, type = 'FTCO2') {
+            const tokenPreview = document.getElementById('tokenPreview');
+            const progressPercentage = ((currentStep - 1) / 4 * 100).toFixed(0);
+            
+            tokenPreview.innerHTML = `
+                <h4><i class="fa-solid fa-${type === 'FTCO2' ? 'forward' : 'check-circle'}"></i> ${type} - ${currentProject.name}</h4>
+                <div class="token-id">${tokenId}</div>
+                <div class="token-details">
+                    <div class="token-detail">
+                        <strong>Tipo:</strong> ${type}
+                    </div>
+                    <div class="token-detail">
+                        <strong>Créditos Estimados:</strong> ${currentProject.credits} ton CO₂/ano
+                    </div>
+                    <div class="token-detail">
+                        <strong>Data de Criação:</strong> ${currentProject.startDate}
+                    </div>
+                    <div class="token-detail">
+                        <strong>Progresso:</strong> ${progressPercentage}%
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: ${progressPercentage}%"></div>
+                </div>
+                <div>
+                    <span class="status-badge ${type === 'FTCO2' ? 'status-ftco2' : 'status-tco2'}">${type}</span>
+                    <span class="status-badge ${currentStep < 5 ? 'status-pending' : 'status-certified'}">${currentStep < 5 ? 'EM ANDAMENTO' : 'CERTIFICADO'}</span>
+                </div>
+            `;
+        }
+
+        function updateDashboardMetrics() {
+            document.getElementById('totalTokens').textContent = '12';
+            document.getElementById('activeTokens').textContent = '8';
+            document.getElementById('ftco2Tokens').textContent = '5';
+            document.getElementById('tco2Tokens').textContent = '7';
+            document.getElementById('totalValue').textContent = 'R$ 89.450';
+            document.getElementById('completedTrades').textContent = '23';
+            document.getElementById('burnedTokens').textContent = '1.850';
+            document.getElementById('successRate').textContent = '94%';
+        }
+
+        function makeOffer(tokenId) {
+            alert(`Oferta iniciada para o token ${tokenId}!\n\nNo sistema real, você poderia:\n• Definir preço e quantidade\n• Escolher forma de pagamento\n• Negociar condições\n• Acompanhar status da transação`);
+        }
+
+        function createOffer() {
+            const token = document.getElementById('offerToken').value;
+            const price = document.getElementById('offerPrice').value;
+            
+            if (!token || !price) {
+                alert('Por favor, preencha todos os campos da oferta.');
+                return;
+            }
+            
+            alert(`Nova oferta criada!\n\nToken: ${token}\nPreço: R$ ${price}\n\nSua oferta está agora disponível na mesa de negociação.`);
+        }
+
+        function generateReport() {
+            alert('Relatório gerado com sucesso!\n\nO relatório completo inclui:\n• Histórico de transações\n• Métricas de desempenho\n• Certificados de carbono\n• Relatório financeiro detalhado');
+        }
+
+        function simulateBurn() {
+            alert('Simulação de "Burn" realizada!\n\nNo sistema real, ao utilizar um crédito para compensação:\n• O token é marcado como "queimado"\n• Evita-se dupla contagem\n• Registro permanente no blockchain\n• Comprovante de utilização gerado');
+        }
+    </script>
 </body>
-
 </html>
