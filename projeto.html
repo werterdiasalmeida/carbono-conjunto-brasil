@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O Projeto - Carbono Conjunto Brasil</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         * {
             margin: 0;
@@ -14,22 +15,21 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: Arial, sans-serif;
             background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
         }
 
         header {
-            background: #2c5530;
-            color: white;
+            background: #4a7c59;
+            color: #fff;
             padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: auto;
             padding: 0 2rem;
         }
 
@@ -39,20 +39,8 @@
             align-items: center;
         }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2rem;
-        }
-
-        .logo-area i {
-            font-size: 1.8rem;
-            color: #4CAF50;
-        }
-
-        .brand {
-            font-weight: bold;
+        .logo-area img {
+            height: 50px;
         }
 
         nav ul {
@@ -62,337 +50,174 @@
         }
 
         nav a {
-            color: white;
+            color: #fff;
             text-decoration: none;
-            transition: opacity 0.3s;
         }
 
-        nav a:hover {
-            opacity: 0.8;
-        }
-
-        .page-hero {
+        .hero {
             background: linear-gradient(135deg, #2c5530, #4a7c59);
-            color: white;
-            padding: 3rem 2rem;
+            color: #fff;
             text-align: center;
+            padding: 4rem 2rem;
         }
 
-        .page-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .content-section {
+        section {
             padding: 4rem 0;
-            background: white;
+            background: #fff;
         }
 
-        .content-section.alternate {
-            background: #f8f9fa;
+        section.alt {
+            background: #f0f3f1;
         }
 
-        .section-title {
+        h2 {
             text-align: center;
             margin-bottom: 3rem;
             color: #2c5530;
         }
 
-        .problem-solution {
+        .grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .problem-box,
-        .solution-box {
-            padding: 2rem;
-            border-radius: 8px;
-        }
-
-        .problem-box {
-            background: #ffe6e6;
-            border-left: 4px solid #ff4444;
-        }
-
-        .solution-box {
-            background: #e6ffe6;
-            border-left: 4px solid #4CAF50;
-        }
-
-        .objectives-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
         }
 
-        .objective-card {
-            background: white;
+        .card {
+            background: #fff;
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid #4CAF50;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
         }
 
-        .objective-card h3 {
-            color: #2c5530;
-            margin-bottom: 1rem;
+        .card h3 {
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 1rem;
+            color: #2c5530;
         }
 
-        .publico-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .publico-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .publico-card i {
-            font-size: 2rem;
+        .card i {
             color: #4CAF50;
-            margin-bottom: 1rem;
-        }
-
-        .timeline {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline-item {
-            background: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid #4CAF50;
-        }
-
-        .downloads {
-            text-align: center;
-            padding: 3rem 0;
-        }
-
-        .download-buttons {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 15px 30px;
-            background: #2c5530;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .download-btn:hover {
-            background: #1e3a24;
+            font-size: 1.3rem;
         }
 
         footer {
             background: #1e3a24;
-            color: white;
+            color: #fff;
             text-align: center;
-            padding: 2rem 0;
-        }
-
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            .problem-solution {
-                grid-template-columns: 1fr;
-            }
-
-            .download-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
+            padding: 2rem 1rem;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="container nav-container">
-            <div class="logo-area">
-                <i class="fa-solid fa-seedling"></i>
-                <div class="brand">Carbono Conjunto Brasil</div>
+
+<header>
+    <div class="container nav-container">
+        <div class="logo-area">
+            <img src="logo2.png" alt="Carbono Conjunto Brasil">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">In�cio</a></li>
+                <li><a href="projeto.html">Projeto</a></li>
+                <li><a href="prototipo.html">Plataforma</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h3>O Projeto Carbono Conjunto Brasil</h3>
+        <p>
+            Uma proposta estruturante para organizar, ampliar e dar transpar�ncia
+            ao mercado volunt�rio de cr�ditos de carbono no Brasil.
+        </p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Desafio e Solu��o</h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i>O Desafio</h3>
+                <p>
+                    O mercado de cr�ditos de carbono no Brasil ainda apresenta
+                    barreiras t�cnicas, operacionais e financeiras, dificultando
+                    o acesso de pequenos e m�dios projetos.
+                </p>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="projeto.html" class="active">Projeto</a></li>
-                    <li><a href="prototipo.html">Plataforma</a></li>
-                    <li><a href="detalhe.html" class="active">Demonstração</a></li>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-lightbulb"></i>A Solu��o Proposta</h3>
+                <p>
+                    Ecossistema digital integrado que conecta projetos,
+                    certificadoras e compradores, organizando todo o ciclo
+                    do cr�dito de carbono.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="alt">
+    <div class="container">
+        <h2>Objetivos do Projeto</h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3><i class="fa-solid fa-bullseye"></i>Objetivo Geral</h3>
+                <p>
+                    Estruturar uma plataforma digital integrada para cria��o,
+                    certifica��o, negocia��o e gest�o de cr�ditos de carbono.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-list-check"></i>Objetivos Espec�ficos</h3>
+                <ul style="margin-left: 1.2rem;">
+                    <li>Registro e rastreabilidade</li>
+                    <li>Facilitar certifica��o</li>
+                    <li>Ambiente seguro de negocia��o</li>
+                    <li>Gest�o corporativa de emiss�es</li>
+                    <li>Apoio a pol�ticas ESG</li>
                 </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="page-hero">
-        <div class="container">
-            <h1>O Projeto Carbono Conjunto Brasil</h1>
-            <p>Conheça em detalhes nossa proposta para democratizar o mercado de créditos de carbono</p>
-        </div>
-    </section>
-
-    <section class="content-section">
-        <div class="container">
-            <h2 class="section-title">Desafio e Solução</h2>
-            <div class="problem-solution">
-                <div class="problem-box">
-                    <h3><i class="fa-solid fa-triangle-exclamation"></i> O Problema</h3>
-                    <p>O mercado de créditos de carbono no Brasil exclui pequenos produtores devido à:</p>
-                    <ul style="margin-top: 1rem; margin-left: 1.5rem;">
-                        <li>Alta complexidade técnica</li>
-                        <li>Custos elevados de certificação</li>
-                        <li>Falta de transparência</li>
-                        <li>Dificuldade de acesso ao mercado</li>
-                    </ul>
-                </div>
-                <div class="solution-box">
-                    <h3><i class="fa-solid fa-lightbulb"></i> Nossa Solução</h3>
-                    <p>Uma plataforma integrada que oferece:</p>
-                    <ul style="margin-top: 1rem; margin-left: 1.5rem;">
-                        <li>Tokenização de créditos (FTCO2/TCO2)</li>
-                        <li>Processo de certificação simplificado</li>
-                        <li>Mercado transparente e seguro</li>
-                        <li>Monetização antecipada para produtores</li>
-                    </ul>
-                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="content-section alternate">
-        <div class="container">
-            <h2 class="section-title">Objetivos do Projeto</h2>
-            <div class="objectives-grid">
-                <div class="objective-card">
-                    <h3><i class="fa-solid fa-bullseye"></i> Objetivo Geral</h3>
-                    <p>Promover a criação, certificação, tokenização e comercialização de créditos de carbono através de
-                        uma plataforma integrada que garanta transparência e segurança em todas as etapas.</p>
-                </div>
-                <div class="objective-card">
-                    <h3><i class="fa-solid fa-list-check"></i> Objetivos Específicos</h3>
-                    <ul style="margin-left: 1.5rem;">
-                        <li>Organizar o ecossistema de créditos de carbono</li>
-                        <li>Facilitar o cadastro e gestão de projetos</li>
-                        <li>Digitalizar o processo de certificação</li>
-                        <li>Emitir tokens representativos dos créditos</li>
-                        <li>Viabilizar a monetização antecipada</li>
-                    </ul>
-                </div>
+<section>
+    <div class="container">
+        <h2>P�blico-Alvo</h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3><i class="fa-solid fa-seedling"></i>Projetos e Produtores</h3>
+                <p>Produtores rurais, cooperativas e projetos ambientais.</p>
+            </div>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-building"></i>Empresas</h3>
+                <p>Empresas comprometidas com ESG e neutraliza��o de emiss�es.</p>
+            </div>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-scale-balanced"></i>Institui��es</h3>
+                <p>Certificadoras, consultorias e institui��es p�blicas.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="content-section">
-        <div class="container">
-            <h2 class="section-title">Público-Alvo</h2>
-            <div class="publico-grid">
-                <div class="publico-card">
-                    <i class="fa-solid fa-tractor"></i>
-                    <h3>Produtores Rurais</h3>
-                    <p>Pequenos e médios produtores com potencial para gerar créditos</p>
-                </div>
-                <div class="publico-card">
-                    <i class="fa-solid fa-people-group"></i>
-                    <h3>Cooperativas</h3>
-                    <p>Entidades de agrupamento e organizações comunitárias</p>
-                </div>
-                <div class="publico-card">
-                    <i class="fa-solid fa-building"></i>
-                    <h3>Empresas</h3>
-                    <p>Compradores de créditos para compensação de emissões</p>
-                </div>
-                <div class="publico-card">
-                    <i class="fa-solid fa-scale-balanced"></i>
-                    <h3>Certificadoras</h3>
-                    <p>Organismos verificadores e consultorias especializadas</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer>
+    <p>&copy; 2025 Carbono Conjunto Brasil</p>
+    <p>Projeto em desenvolvimento para o mercado volunt�rio de cr�ditos de carbono</p>
+</footer>
 
-    <section class="content-section alternate">
-        <div class="container">
-            <h2 class="section-title">Cronograma de Desenvolvimento</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3><i class="fa-solid fa-rocket"></i> Fase 1 - Plataforma de Certificação (Meses 1-5)</h3>
-                    <p>Desenvolvimento do módulo de criação e certificação de créditos, incluindo cadastro de
-                        produtores, gestão de documentos e emissão de tokens FTCO2.</p>
-                </div>
-                <div class="timeline-item">
-                    <h3><i class="fa-solid fa-store"></i> Fase 2 - Plataforma de Negociação (Meses 5-8)</h3>
-                    <p>Desenvolvimento do marketplace para compra e venda de créditos tokenizados, com mecanismos de
-                        negociação e pagamento.</p>
-                </div>
-                <div class="timeline-item">
-                    <h3><i class="fa-solid fa-chalkboard-user"></i> Fase 3 - Implantação (Mês 9)</h3>
-                    <p>Testes finais, implantação em produção e capacitação dos usuários.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="content-section">
-        <div class="container">
-            <div class="downloads">
-                <h2 class="section-title">Documentação do Projeto</h2>
-                <p>Baixe os documentos completos para conhecer todos os detalhes da proposta</p>
-                <br />
-                <a href="Apresentacao_Projeto_Carbono_Conjunto.pdf" class="download-btn" download>
-                    <i class="fa-solid fa-file-pdf"></i>
-                    Apresentação do Projeto
-                </a>
-                 <br /><br />
-                <a href="Resumo_Executivo_Carbono_Conjunto_Brasil.pdf" class="download-btn" download>
-                    <i class="fa-solid fa-file-pdf"></i>
-                    Resumo Executivo
-                </a>
-                 <br />
-                <div class="download-buttons">
-                    <a href="Plano_de_Trabalho_Carbono_Conjunto_Brasil.pdf" class="download-btn" download>
-                        <i class="fa-solid fa-download"></i>
-                        Plano de Trabalho Completo
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Carbono Conjunto Brasil. Todos os direitos reservados.</p>
-            <p>Projeto em desenvolvimento para inclusão no mercado de créditos de carbono</p>
-        </div>
-    </footer>
 </body>
-
 </html>

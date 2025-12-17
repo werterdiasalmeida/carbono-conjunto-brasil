@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funcionamento da Plataforma - Carbono Conjunto Brasil</title>
+    <title>Plataforma - Carbono Conjunto Brasil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,22 +13,21 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: Arial, sans-serif;
             background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
         }
 
         header {
-            background: #2c5530;
-            color: white;
+            background: #4a7c59;
+            color: #fff;
             padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: auto;
             padding: 0 2rem;
         }
 
@@ -38,20 +37,8 @@
             align-items: center;
         }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2rem;
-        }
-
-        .logo-area i {
-            font-size: 1.8rem;
-            color: #4CAF50;
-        }
-
-        .brand {
-            font-weight: bold;
+        .logo-area img {
+            height: 50px;
         }
 
         nav ul {
@@ -61,54 +48,64 @@
         }
 
         nav a {
-            color: white;
+            color: #fff;
             text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        nav a:hover {
-            opacity: 0.8;
         }
 
         .page-hero {
             background: linear-gradient(135deg, #2c5530, #4a7c59);
-            color: white;
-            padding: 3rem 2rem;
+            color: #fff;
             text-align: center;
+            padding: 4rem 2rem;
         }
 
-        .page-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .content-section {
+        section {
             padding: 4rem 0;
-            background: white;
+            background: #fff;
         }
 
-        .content-section.alternate {
-            background: #f8f9fa;
+        section.alt {
+            background: #f0f3f1;
         }
 
-        .section-title {
+        h2 {
             text-align: center;
             margin-bottom: 3rem;
             color: #2c5530;
         }
 
-        .platforms-overview {
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .platforms-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 4rem;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .platforms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
         }
 
         .platform-card {
-            background: white;
+            background: #fff;
             padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            height: 100%;
             border-top: 5px solid #4CAF50;
         }
 
@@ -120,27 +117,36 @@
             border-top-color: #4a7c59;
         }
 
-        .platform-card h3 {
-            color: #2c5530;
-            margin-bottom: 1.5rem;
+        .platform-card.inventory {
+            border-top-color: #2c5530;
+        }
+
+        .card h3, .platform-card h3 {
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 1rem;
+            color: #2c5530;
+        }
+
+        .card i, .platform-card i {
+            color: #4CAF50;
+            font-size: 1.3rem;
         }
 
         .actors-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         .actor-card {
             background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
+            padding: 1rem;
+            border-radius: 6px;
             text-align: center;
-            border-left: 4px solid #4CAF50;
+            border-left: 3px solid #4CAF50;
         }
 
         .process-timeline {
@@ -150,10 +156,10 @@
 
         .process-step {
             background: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
             border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
             border-left: 4px solid #4CAF50;
             position: relative;
         }
@@ -188,6 +194,12 @@
             margin-top: 2rem;
         }
 
+        @media (max-width: 768px) {
+            .tokens-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .token-card {
             background: rgba(255,255,255,0.1);
             padding: 2rem;
@@ -204,11 +216,6 @@
             border: 2px solid #4CAF50;
         }
 
-        .demo-cta {
-            text-align: center;
-            padding: 3rem 0;
-        }
-
         .btn {
             display: inline-block;
             padding: 15px 30px;
@@ -216,7 +223,7 @@
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            margin: 0 10px;
+            margin: 10px 5px;
             transition: background 0.3s;
         }
 
@@ -224,30 +231,24 @@
             background: #45a049;
         }
 
-        footer {
-            background: #1e3a24;
-            color: white;
+        .demo-cta {
             text-align: center;
             padding: 2rem 0;
         }
 
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
+        footer {
+            background: #1e3a24;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
 
-            nav ul {
-                gap: 1rem;
-            }
-
-            .platforms-overview {
-                grid-template-columns: 1fr;
-            }
-
-            .tokens-grid {
-                grid-template-columns: 1fr;
-            }
+        .highlight-box {
+            background: #e8f5e9;
+            border-left: 5px solid #2c5530;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
         }
     </style>
 </head>
@@ -255,15 +256,13 @@
     <header>
         <div class="container nav-container">
             <div class="logo-area">
-                <i class="fa-solid fa-seedling"></i>
-                <div class="brand">Carbono Conjunto Brasil</div>
+                <img src="logo2.png" alt="Carbono Conjunto Brasil">
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">InÃ­cio</a></li>
+                    <li><a href="index.html">Início</a></li>
                     <li><a href="projeto.html">Projeto</a></li>
-                    <li><a href="prototipo.html" class="active">Plataforma</a></li>
-                    <li><a href="detalhe.html" class="active">DemonstraÃ§Ã£o</a></li>
+                    <li><a href="prototipo.html">Plataforma</a></li>
                 </ul>
             </nav>
         </div>
@@ -271,135 +270,205 @@
 
     <section class="page-hero">
         <div class="container">
-            <h1>Funcionamento da Plataforma</h1>
-            <p>ConheÃ§a como o sistema irÃ¡ operar em suas duas partes principais</p>
+            <h3>Funcionamento da Plataforma</h3>
+            <p>Conheça como o sistema irá operar em suas três partes principais: Criação, Inventários e Negociação</p>
         </div>
     </section>
 
-    <section class="content-section">
+    <section>
         <div class="container">
-            <h2 class="section-title">Arquitetura do Sistema</h2>
-            <div class="platforms-overview">
+            <h2>Arquitetura do Sistema</h2>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-info-circle"></i> Sistema Integrado de Três Plataformas</h4>
+                <p>O ecossistema Carbono Conjunto Brasil é composto por três plataformas interconectadas que formam um ciclo completo de gestão de carbono.</p>
+            </div>
+
+            <div class="platforms-grid">
                 <div class="platform-card creation">
-                    <h3><i class="fa-solid fa-certificate"></i> Plataforma de CriaÃ§Ã£o e CertificaÃ§Ã£o</h3>
-                    <p><strong>Objetivo:</strong> Acompanhar todo o processo desde o cadastro atÃ© a tokenizaÃ§Ã£o final dos crÃ©ditos</p>
+                    <h3><i class="fa-solid fa-certificate"></i> Plataforma de Criação e Certificação</h3>
+                    <p><strong>Objetivo:</strong> Acompanhar todo o processo desde o cadastro até a tokenização final dos créditos</p>
                     
-                    <h4 style="margin: 1.5rem 0 1rem 0; color: #2c5530;">Atores Envolvidos:</h4>
+                    <h4>Atores Envolvidos:</h4>
                     <div class="actors-grid">
                         <div class="actor-card">
                             <i class="fa-solid fa-user"></i>
-                            <h5>ProprietÃ¡rio</h5>
+                            <h5>Proprietário</h5>
                             <small>Dono do ativo ambiental</small>
                         </div>
                         <div class="actor-card">
                             <i class="fa-solid fa-people-group"></i>
                             <h5>Entidade de Agrupamento</h5>
-                            <small>Cooperativas, associaÃ§Ãµes</small>
+                            <small>Cooperativas, associações</small>
                         </div>
                         <div class="actor-card">
                             <i class="fa-solid fa-building"></i>
                             <h5>Consultoria</h5>
                             <small>Empresas especializadas</small>
                         </div>
-                        <div class="actor-card">
-                            <i class="fa-solid fa-gears"></i>
-                            <h5>Plataforma</h5>
-                            <small>Controle de tokens</small>
-                        </div>
                     </div>
                 </div>
 
-                <div class="platform-card trading">
-                    <h3><i class="fa-solid fa-chart-line"></i> Plataforma de NegociaÃ§Ã£o</h3>
-                    <p><strong>Objetivo:</strong> Comercializar os crÃ©ditos tokenizados de forma segura e transparente</p>
+                <div class="platform-card inventory">
+                    <h3><i class="fa-solid fa-calculator"></i> Plataforma de Inventários</h3>
+                    <p><strong>Objetivo:</strong> Realizar cálculo de emissões corporativas seguindo o padrão Programa Brasileiro GHG Protocol</p>
                     
-                    <h4 style="margin: 1.5rem 0 1rem 0; color: #2c5530;">Atores Envolvidos:</h4>
+                    <h4>Funcionalidades:</h4>
                     <div class="actors-grid">
                         <div class="actor-card">
-                            <i class="fa-solid fa-user"></i>
-                            <h5>ProprietÃ¡rio</h5>
-                            <small>Vendedor de crÃ©ditos</small>
+                            <i class="fa-solid fa-database"></i>
+                            <h5>Captura de Dados</h5>
+                            <small>Coleta automatizada</small>
                         </div>
                         <div class="actor-card">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <h5>Comprador</h5>
-                            <small>Consumidor do crÃ©dito</small>
+                            <i class="fa-solid fa-calculator"></i>
+                            <h5>Cálculo GHG</h5>
+                            <small>Padrão brasileiro</small>
                         </div>
                         <div class="actor-card">
-                            <i class="fa-solid fa-handshake"></i>
-                            <h5>Corretora</h5>
-                            <small>IntermediaÃ§Ã£o</small>
+                            <i class="fa-solid fa-file-export"></i>
+                            <h5>Publicação</h5>
+                            <small>FGV e instituições</small>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-card trading" style="max-width: 800px; margin: 0 auto;">
+                <h3><i class="fa-solid fa-chart-line"></i> Plataforma de Negociação</h3>
+                <p><strong>Objetivo:</strong> Comercializar os créditos tokenizados de forma segura e transparente</p>
+                
+                <h4>Atores Envolvidos:</h4>
+                <div class="actors-grid">
+                    <div class="actor-card">
+                        <i class="fa-solid fa-user"></i>
+                        <h5>Proprietário</h5>
+                        <small>Vendedor de créditos</small>
+                    </div>
+                    <div class="actor-card">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <h5>Comprador</h5>
+                        <small>Consumidor do crédito</small>
+                    </div>
+                    <div class="actor-card">
+                        <i class="fa-solid fa-handshake"></i>
+                        <h5>Corretora</h5>
+                        <small>Intermediação</small>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="content-section alternate">
+    <section class="alt">
         <div class="container">
-            <h2 class="section-title">Processo de CriaÃ§Ã£o e CertificaÃ§Ã£o</h2>
+            <h2>Processo de Inventário de Emissões</h2>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-industry"></i> Padrão Programa Brasileiro GHG Protocol</h4>
+                <p>Sistema alinhado com a metodologia oficial brasileira para cálculo de emissões de gases de efeito estufa.</p>
+            </div>
+
             <div class="process-timeline">
                 <div class="process-step">
                     <div class="step-number">1</div>
-                    <h3>Cadastro do ProprietÃ¡rio e Ativo</h3>
-                    <p>Cadastro completo dos dados do proprietÃ¡rio e da propriedade/projeto, incluindo fotos, vÃ­deos e documentaÃ§Ã£o necessÃ¡ria para contato pela entidade de agrupamento.</p>
+                    <h3>Captura dos Dados</h3>
+                    <p>Coleta automatizada de dados de fontes de emissão corporativas, incluindo consumo energético, processos industriais, transportes e resíduos. Integração com sistemas ERP e APIs de fornecedores.</p>
                 </div>
 
                 <div class="process-step">
                     <div class="step-number">2</div>
-                    <h3>Agrupamento dos CrÃ©ditos</h3>
-                    <p>A entidade de agrupamento (cooperativa, associaÃ§Ã£o) entra em contato com os proprietÃ¡rios e cria grupos para consolidar documentaÃ§Ã£o e iniciar o processo de certificaÃ§Ã£o.</p>
+                    <h3>Cálculo pelo Padrão GHG Protocol</h3>
+                    <p>Processamento automático dos dados utilizando fatores de emissão específicos para a realidade brasileira. Cálculo separado por escopos (1, 2 e 3) conforme diretrizes do Programa Brasileiro GHG Protocol.</p>
                 </div>
 
                 <div class="process-step">
                     <div class="step-number">3</div>
-                    <h3>Abertura do Processo de CertificaÃ§Ã£o</h3>
-                    <p>A empresa especializada inicia junto Ã  certificadora escolhida o processo de certificaÃ§Ã£o, registrando cada etapa alcanÃ§ada diretamente na plataforma.</p>
+                    <h3>Relatórios e Análises</h3>
+                    <p>Geração automática de relatórios detalhados com análises de tendência, identificação de hotspots de emissão e projeções de redução. Dashboard interativo com visualização de dados por setor, filial ou processo.</p>
                 </div>
 
                 <div class="process-step">
                     <div class="step-number">4</div>
-                    <h3>CriaÃ§Ã£o do FTCO2 (Token Forward)</h3>
-                    <p>Ao iniciar o processo de certificaÃ§Ã£o, a plataforma automaticamente cria tokens FTCO2, que jÃ¡ podem ser negociados na plataforma de negociaÃ§Ã£o.</p>
+                    <h3>Publicação e Registro</h3>
+                    <p>Exportação de relatórios no formato exigido pela FGV (Fundação Getulio Vargas) e outras instituições competentes. Sistema de submissão eletrônica e acompanhamento do status de publicação.</p>
                 </div>
 
                 <div class="process-step">
                     <div class="step-number">5</div>
-                    <h3>CertificaÃ§Ã£o Final do CrÃ©dito</h3>
-                    <p>Ao final do processo, o crÃ©dito Ã© certificado pela entidade verificadora e fica apto para conversÃ£o em TCO2.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">6</div>
-                    <h3>TokenizaÃ§Ã£o Final - TCO2</h3>
-                    <p>Os tokens FTCO2 sÃ£o convertidos automaticamente em TCO2 e retornam para a mesa de negociaÃ§Ã£o como crÃ©ditos certificados.</p>
+                    <h3>Planejamento de Neutralização</h3>
+                    <p>Integração direta com a plataforma de negociação para aquisição de créditos de carbono compatíveis com o inventário calculado. Simulador de cenários de neutralização e custos associados.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="content-section">
+    <section>
         <div class="container">
-            <h2 class="section-title">Sistema de Tokens</h2>
+            <h2>Processo de Criação e Certificação</h2>
+            
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Cadastro do Proprietário e Ativo</h3>
+                    <p>Cadastro completo dos dados do proprietário e da propriedade/projeto, incluindo fotos, vídeos e documentação necessária para contato pela entidade de agrupamento.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Agrupamento dos Créditos</h3>
+                    <p>A entidade de agrupamento (cooperativa, associação) entra em contato com os proprietários e cria grupos para consolidar documentação e iniciar o processo de certificação.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Abertura do Processo de Certificação</h3>
+                    <p>A empresa especializada inicia junto à certificadora escolhida o processo de certificação, registrando cada etapa alcançada diretamente na plataforma.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Criação do FTCO2 (Token Forward)</h3>
+                    <p>Ao iniciar o processo de certificação, a plataforma automaticamente cria tokens FTCO2, que já podem ser negociados na plataforma de negociação.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Certificação Final do Crédito</h3>
+                    <p>Ao final do processo, o crédito é certificado pela entidade verificadora e fica apto para conversão em TCO2.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h3>Tokenização Final - TCO2</h3>
+                    <p>Os tokens FTCO2 são convertidos automaticamente em TCO2 e retornam para a mesa de negociação como créditos certificados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="alt">
+        <div class="container">
+            <h2>Sistema de Tokens</h2>
+            
             <div class="token-explanation">
                 <h3 style="text-align: center; margin-bottom: 1rem;">Tipos de Tokens</h3>
-                <p style="text-align: center; opacity: 0.9;">Sistema dual de tokens para diferentes estÃ¡gios do crÃ©dito</p>
+                <p style="text-align: center; opacity: 0.9;">Sistema dual de tokens para diferentes estágios do crédito</p>
                 
                 <div class="tokens-grid">
                     <div class="token-card ftco2">
                         <h4><i class="fa-solid fa-forward"></i> FTCO2</h4>
                         <p><strong>Token Forward</strong></p>
-                        <p>Criado no inÃ­cio do processo de certificaÃ§Ã£o</p>
-                        <p>Permite monetizaÃ§Ã£o antecipada</p>
-                        <p>NegociÃ¡vel durante a certificaÃ§Ã£o</p>
+                        <p>Criado no início do processo de certificação</p>
+                        <p>Permite monetização antecipada</p>
+                        <p>Negociável durante a certificação</p>
                     </div>
                     
                     <div class="token-card tco2">
                         <h4><i class="fa-solid fa-check-circle"></i> TCO2</h4>
                         <p><strong>Token Final</strong></p>
-                        <p>CrÃ©dito totalmente certificado</p>
-                        <p>ConversÃ£o automÃ¡tica do FTCO2</p>
+                        <p>Crédito totalmente certificado</p>
+                        <p>Conversão automática do FTCO2</p>
                         <p>Pronto para uso e "burn"</p>
                     </div>
                 </div>
@@ -407,67 +476,53 @@
         </div>
     </section>
 
-    <section class="content-section alternate">
+    <section>
         <div class="container">
-            <h2 class="section-title">Processo de NegociaÃ§Ã£o</h2>
+            <h2>Processo de Negociação</h2>
+            
             <div class="process-timeline">
                 <div class="process-step">
                     <div class="step-number">1</div>
-                    <h3>IntegraÃ§Ã£o AutomÃ¡tica</h3>
-                    <p>Os tokens criados na plataforma de certificaÃ§Ã£o sÃ£o automaticamente importados para a plataforma de negociaÃ§Ã£o.</p>
+                    <h3>Integração Automática</h3>
+                    <p>Os tokens criados na plataforma de certificação são automaticamente importados para a plataforma de negociação.</p>
                 </div>
 
                 <div class="process-step">
                     <div class="step-number">2</div>
-                    <h3>PublicaÃ§Ã£o dos CrÃ©ditos</h3>
-                    <p>O proprietÃ¡rio ou corretor autorizado publica os tokens (FTCO2 ou TCO2) que deseja disponibilizar para venda.</p>
+                    <h3>Publicação dos Créditos</h3>
+                    <p>O proprietário ou corretor autorizado publica os tokens (FTCO2 ou TCO2) que deseja disponibilizar para venda.</p>
                 </div>
 
                 <div class="process-step">
                     <div class="step-number">3</div>
-                    <h3>NegociaÃ§Ã£o e Pagamento</h3>
-                    <p>Os tokens sÃ£o negociados em mesa de negociaÃ§Ã£o com sistema seguro de pagamento e confirmaÃ§Ã£o.</p>
+                    <h3>Negociação e Pagamento</h3>
+                    <p>Os tokens são negociados em mesa de negociação com sistema seguro de pagamento e confirmação.</p>
                 </div>
 
                 <div class="process-step">
                     <div class="step-number">4</div>
-                    <h3>TransferÃªncia AutomÃ¡tica</h3>
-                    <p>A plataforma transfere automaticamente os valores pagos ao proprietÃ¡rio e os tokens ao comprador.</p>
+                    <h3>Transferência Automática</h3>
+                    <p>A plataforma transfere automaticamente os valores pagos ao proprietário e os tokens ao comprador.</p>
                 </div>
 
                 <div class="process-step">
                     <div class="step-number">5</div>
-                    <h3>UtilizaÃ§Ã£o (Burn)</h3>
-                    <p>Ao utilizar o token para compensaÃ§Ã£o, a plataforma executa o "burn" (queima), tornando o crÃ©dito indisponÃ­vel e evitando dupla contagem.</p>
+                    <h3>Utilização (Burn)</h3>
+                    <p>Ao utilizar o token para compensação, a plataforma executa o "burn" (queima), tornando o crédito indisponível e evitando dupla contagem.</p>
                 </div>
 
                 <div class="process-step">
                     <div class="step-number">6</div>
-                    <h3>PainÃ©is de Acompanhamento</h3>
-                    <p>Compradores e vendedores acompanham seus tokens atravÃ©s de painÃ©is que mostram tokens ativos, em negociaÃ§Ã£o ou jÃ¡ utilizados (burn).</p>
+                    <h3>Painéis de Acompanhamento</h3>
+                    <p>Compradores e vendedores acompanham seus tokens através de painéis que mostram tokens ativos, em negociação ou já utilizados (burn).</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="content-section">
-        <div class="container">
-            <div class="demo-cta">
-                <h2 class="section-title">Quer Ver na PrÃ¡tica?</h2>
-                <p>Explore nosso protÃ³tipo interativo para entender melhor o funcionamento da plataforma</p>
-                <a href="detalhe.html" class="btn">
-                    <i class="fa-solid fa-play"></i>
-                    Acessar DemonstraÃ§Ã£o
-                </a>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Carbono Conjunto Brasil. Todos os direitos reservados.</p>
-            <p>Projeto em desenvolvimento para inclusÃ£o no mercado de crÃ©ditos de carbono</p>
-        </div>
+        <p>&copy; 2025 Carbono Conjunto Brasil</p>
+        <p>Projeto em desenvolvimento para o mercado voluntário de créditos de carbono</p>
     </footer>
 </body>
 </html>
